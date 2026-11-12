@@ -1,14 +1,12 @@
 
 package ma.emsi.chorouk.llm;
 
-import dev.langchain4j.service.SystemMessage;
-
+/**
+ * Interface du service IA.
+ * LangChain4j fournit automatiquement son implémentation.
+ */
 public interface Assistant {
 
-    @SystemMessage("""
-            Tu es un assistant IA serviable.
-            Tu réponds aux questions en français.
-            Tu donnes des réponses claires et précises.
-            """)
-    String chat(String question);
+    String chat(String prompt);
+
 }
