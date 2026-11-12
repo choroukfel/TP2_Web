@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="primefaces">
+
+<h:head>
+    <title>TP2 - Assistant Gemini</title>
+</h:head>
+
+<h:body>
+
+    <h:form id="form">
+
+        <p:panel header="TP2 - Assistant IA avec Gemini">
+
+            <h:panelGrid columns="1" style="width:100%">
+
+                <h:outputLabel for="question"
+                               value="Votre question :" />
+
+                <p:inputTextarea id="question"
+                                 value="#{bb.question}"
+                                 rows="4"
+                                 autoResize="true"
+                                 style="width:100%" />
+
+                <p:commandButton value="Envoyer"
+                                 icon="pi pi-send"
+                                 action="#{bb.envoyer}"
+                                 process="@form"
+                                 update="@form" />
+
+                <h:outputLabel for="reponse"
+                               value="Réponse de Gemini :" />
+
+                <p:inputTextarea id="reponse"
+                                 value="#{bb.reponse}"
+                                 rows="6"
+                                 readonly="true"
+                                 style="width:100%" />
+
+                <h:outputLabel for="conversation"
+                               value="Historique de conversation :" />
+
+                <p:inputTextarea id="conversation"
+                                 value="#{bb.conversation}"
+                                 rows="12"
+                                 readonly="true"
+                                 style="width:100%" />
+
+                <p:commandButton value="Effacer"
+                                 icon="pi pi-trash"
+                                 action="#{bb.effacer}"
+                                 process="@this"
+                                 update="@form"
+                                 styleClass="ui-button-secondary" />
+
+            </h:panelGrid>
+
+        </p:panel>
+
+    </h:form>
+
+</h:body>
+</html>
